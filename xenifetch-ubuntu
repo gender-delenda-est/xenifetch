@@ -1,3 +1,4 @@
+
 #!/bin/sh
 #
 # xenifetch-ubuntu - tiny system info for ubuntu
@@ -70,22 +71,23 @@ lc="${reset}${bold}${blue}"       # labels
 nc="${reset}${bold}${green}"       # user and hostname
 ic="${reset}"                       # info
 c0="${reset}${yellow}"              # first color
+c1="${reset}${white}"
 
 ## OUTPUT
 
 cat <<EOF
 
 ${c0}     /\\           /\\     ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}    /  \\  __     /  \\    ${lc}OS:        ${ic}${os}${reset}
-${c0}   |   \\\\/  \\--,//   \\   ${lc}KERNEL:    ${ic}${kernel}${reset} 
-${c0}   |  __/|   '   )    \\  ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}   \\\\/___(\    /- >\  || ${lc}PACKAGES:  ${ic}${packages}${reset} 
-${c0}   <// _-\\\\^|)^/@@@\\|//  ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}  7/ \\<*_//____\\@@@/ /   ${lc}${uitype}:        ${ic}${ui}${reset}
+${c0}    /${c1}&&${c0}\\  __     /${c1}&&${c0}\\    ${lc}OS:        ${ic}${os}${reset}
+${c0}   |${c1}&&&${c0}\\\\/  \\--,//${c1}&&&${c0}\\   ${lc}KERNEL:    ${ic}${kernel}${reset} 
+${c0}   |${c1}&&${c0}__/|   '   )  ${c1}&&${c0}\\  ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}   \\\\/___(\    /- >\ ${c1}&${c0}|| ${lc}PACKAGES:  ${ic}${packages}${reset} 
+${c0}   </${c1}/ _-\\\\${c0}^|)^${c1}/@@@\\\\${c0}|// ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}  7/ ${c1}\\<*_//${c0}____${c1}\\@@@//${c0} /  ${lc}${uitype}:        ${ic}${ui}${reset}
 ${c0}  _7 __----\__/---___ \\> ${lc}DISK:${reset}
-${c0}  \\__\\   -_ __ _-   /_/7     ${lc}SIZE:    ${ic}${disk_size}${reset}
-${c0}    <      "  "    __>       ${lc}USAGE:   ${ic}${disk_use}${reset}
+${c0}  \\__\\  ${c1} -_ __ _-${c0}   /_/7     ${lc}SIZE:    ${ic}${disk_size}${reset}
+${c0}    <      ${c1}"  "${c0}    __>       ${lc}USAGE:   ${ic}${disk_use}${reset}
 ${c0}     \/|          _>
-${c0}       \\         \\${reset}
-${c0}        \\         \\${reset}
+${c1}       \\         \\${reset}
+${c1}        \\         \\${reset}
 EOF
